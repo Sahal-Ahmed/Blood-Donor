@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class BloodDonor extends Model
 {
     use HasFactory;
+    protected $fillable=['id','name','division_id','zone_id'];
     public function division(){
         return $this->belongsTo(Division::class,'division_id');
     }

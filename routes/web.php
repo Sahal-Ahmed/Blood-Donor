@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SuperAdminController;
 use App\Http\Controllers\DivisionController;
 use App\Http\Controllers\ZoneController;
+use App\Http\Controllers\DonorController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,6 +39,12 @@ Route::resource('/zones',ZoneController::Class);
 Route::get('/zones-trash',[ZoneController::class,'trash']);
 Route::get('/zones/restore/{id}',[ZoneController::class,'restore'])->name('zone.restore');
 Route::get('/zones/delete/{id}',[ZoneController::class,'forceDelete'])->name('zone.delete');
+
+//subcategory route here...
+Route::resource('/blood-donors',DonorController::Class);
+Route::get('/blood-donors-trash',[DonorController::class,'trash']);
+Route::get('/blood-donors/restore/{id}',[DonorController::class,'restore'])->name('donor.restore');
+Route::get('/blood-donors/delete/{id}',[DonorController::class,'forceDelete'])->name('donor.delete');
 
 // frontend route
 Route::get('/',[HomeController::class,'index']);
